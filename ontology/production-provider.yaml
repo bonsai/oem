@@ -1,0 +1,121 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+id: ProductionProvider
+version: 0.1.0
+
+fields:
+  id:
+    type: string
+    required: true
+  name:
+    type: string
+    required: true
+  provider_type:
+    type: array
+    items: [factory, embroidery_shop, print_on_demand, contract_manufacturer, marketplace, manual_service]
+  products:
+    type: array
+    items: string
+  processes:
+    type: array
+    items: [printing, embroidery, knitting, weaving, dyeing, cut_and_sew, sublimation, packaging]
+  customization:
+    type: object
+    fields:
+      methods:
+        type: array
+        items: string
+      placement:
+        type: array
+        items: [one_point, full_surface, front, back, side, all_over]
+      personalization:
+        type: boolean
+  constraints:
+    type: object
+    fields:
+      moq:
+        type: integer
+      max_quantity:
+        type: integer
+      lead_time_days:
+        type: integer
+      max_colors:
+        type: integer
+      max_sizes:
+        type: integer
+  input:
+    type: object
+    fields:
+      formats:
+        type: array
+        items: string
+      artwork_requirements:
+        type: array
+        items: string
+  integration:
+    type: object
+    fields:
+      types:
+        type: array
+        items: [api, etsy, shopify, csv, email, manual]
+      automation_level:
+        type: integer
+        minimum: 0
+        maximum: 5
+  fulfillment:
+    type: object
+    fields:
+      manufacturing: boolean
+      packaging: boolean
+      shipping: boolean
+  geography:
+    type: object
+    fields:
+      production_country:
+        type: string
+      shipping_countries:
+        type: array
+        items: string
+  commercial:
+    type: object
+    fields:
+      currency:
+        type: string
+      listed_price:
+        type: number
+      shipping_price:
+        type: number
+      tax_price:
+        type: number
+      total_price:
+        type: number
+      price_verified:
+        type: boolean
+      shipping_verified:
+        type: boolean
+      tax_verified:
+        type: boolean
+  evidence:
+    type: object
+    fields:
+      source_urls:
+        type: array
+        items: string
+      checked_at:
+        type: string
+      status:
+        type: [candidate, price_checked, shipping_checked, budget_pass, budget_fail, ordered, received, evaluated]
+  scores:
+    type: object
+    fields:
+      testability:
+        type: integer
+        minimum: 0
+        maximum: 5
+      automation:
+        type: integer
+        minimum: 0
+        maximum: 5
+      japan_support:
+        type: integer
+        minimum: 0
+        maximum: 5
