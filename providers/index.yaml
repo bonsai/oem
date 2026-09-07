@@ -1,0 +1,130 @@
+providers:
+  - id: tabio
+    name: Tabio / 靴下屋
+    provider_type: [manual_service]
+    products: [socks]
+    processes: [embroidery]
+    customization:
+      methods: [custom_embroidery]
+      placement: [one_point, front, side, back]
+      personalization: true
+    constraints:
+      moq: 1
+      lead_time_days: 14
+    integration:
+      types: [manual]
+      automation_level: 1
+    geography:
+      production_country: Japan
+      shipping_countries: [JP]
+    evidence:
+      status: candidate
+      source_urls:
+        - https://tabio.com/jp/
+
+  - id: prodigi
+    name: Prodigi
+    provider_type: [print_on_demand]
+    products: [socks]
+    processes: [sublimation]
+    customization:
+      methods: [full_color_print]
+      placement: [all_over, full_surface]
+      personalization: true
+    constraints:
+      moq: 1
+    integration:
+      types: [api, etsy, shopify]
+      automation_level: 5
+    geography:
+      shipping_countries: [JP]
+    evidence:
+      status: candidate
+      source_urls:
+        - https://www.prodigi.com/
+
+  - id: printful
+    name: Printful
+    provider_type: [print_on_demand]
+    products: [socks]
+    processes: [sublimation]
+    customization:
+      methods: [full_color_print, personalization]
+      placement: [all_over, full_surface]
+      personalization: true
+    constraints:
+      moq: 1
+    integration:
+      types: [api, etsy, shopify]
+      automation_level: 5
+    geography:
+      shipping_countries: [JP]
+    evidence:
+      status: candidate
+      source_urls:
+        - https://www.printful.com/
+
+  - id: printify
+    name: Printify
+    provider_type: [print_on_demand]
+    products: [towels]
+    processes: [printing]
+    customization:
+      methods: [full_color_print]
+      placement: [full_surface]
+      personalization: false
+    constraints:
+      moq: 1
+    integration:
+      types: [api, etsy, shopify]
+      automation_level: 5
+    geography:
+      shipping_countries: [JP]
+    evidence:
+      status: candidate
+      source_urls:
+        - https://printify.com/
+
+  - id: marpple
+    name: Marpple
+    provider_type: [manual_service]
+    products: [socks]
+    processes: [embroidery]
+    customization:
+      methods: [custom_embroidery]
+      placement: [one_point]
+      personalization: true
+    constraints:
+      moq: 1
+    integration:
+      types: [manual]
+      automation_level: 1
+    geography:
+      production_country: Japan
+      shipping_countries: [JP]
+    evidence:
+      status: candidate
+      source_urls:
+        - https://www.marpple.com/
+
+  - id: mizuno-senkoujo
+    name: 水野染工場
+    provider_type: [contract_manufacturer]
+    products: [tenugui]
+    processes: [printing, dyeing]
+    customization:
+      methods: [custom_tenugui]
+      placement: [full_surface]
+      personalization: false
+    constraints:
+      moq: 5
+    integration:
+      types: [manual]
+      automation_level: 1
+    geography:
+      production_country: Japan
+      shipping_countries: [JP]
+    evidence:
+      status: candidate
+      source_urls:
+        - https://www.hanten.jp/
