@@ -1,0 +1,92 @@
+benchmark:
+  id: BUDGET-10000-JPY
+  budget_jpy: 10000
+  shipping_included: true
+  tax_included: true
+  quantity_target: 1
+  principle: "Do not call a test passed until the delivered total is evidenced."
+
+statuses:
+  - candidate
+  - price_checked
+  - shipping_checked
+  - budget_pass
+  - budget_fail
+  - ordered
+  - received
+  - evaluated
+
+tests:
+  - id: TEST-001
+    product:
+      category: socks
+    manufacturing:
+      process: embroidery
+    design:
+      placement: one_point
+      personalization: true
+    provider_candidates: [tabio, marpple]
+    target_quantity: 1
+    status: candidate
+
+  - id: TEST-002
+    product:
+      category: socks
+    manufacturing:
+      process: embroidery
+    design:
+      placement: one_point
+      personalization: true
+    provider_candidates: [tabio]
+    target_quantity: 1
+    status: candidate
+
+  - id: TEST-003
+    product:
+      category: socks
+    manufacturing:
+      process: sublimation
+    design:
+      placement: full_surface
+      personalization: true
+    provider_candidates: [prodigi, printful]
+    target_quantity: 1
+    status: candidate
+
+  - id: TEST-004
+    product:
+      category: towels
+    manufacturing:
+      process: printing
+    design:
+      placement: full_surface
+      personalization: true
+    provider_candidates: [printify]
+    target_quantity: 1
+    status: candidate
+
+  - id: TEST-005
+    product:
+      category: tenugui
+    manufacturing:
+      process: printing
+    design:
+      placement: full_surface
+      personalization: false
+    provider_candidates: [mizuno-senkoujo]
+    target_quantity: 5
+    status: candidate
+
+evidence_record:
+  required_before_budget_pass:
+    - product_price
+    - customization_price
+    - shipping_price
+    - tax_price
+    - total_price
+    - order_confirmation_or_invoice
+    - delivery_confirmation
+  notes:
+    - "Listed base prices are not sufficient evidence of a 10000 JPY pass."
+    - "Currency conversion must be recorded with the observation date."
+    - "If shipping or tax is unknown, status remains candidate."
